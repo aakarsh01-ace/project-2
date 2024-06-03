@@ -1,3 +1,16 @@
-# Flask
+# Project 
+Hey there! Welcome to my new ML project. This project will be a lot of fun to work on and learn as we progress since this project will not only involve PYTHON 🐍.
 
-A Flask starter template as per the docs: https://flask.palletsprojects.com/en/3.0.x/quickstart/#a-minimal-application
+# Tech involved
+1. Python
+2. JSON
+3. JavaScript
+4. jQuery
+5. Flask (for web app)
+
+# Introduction
+// //
+
+# Screenshots
+
+
