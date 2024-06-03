@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+  </head>
+
+  <body>
+    <div id="chatbox">
+      <h1>Mental Health Chatbot</h1>
+      <div id="chatlogs">
+        <div class="bot">
+          <p>Hi! How can I help you today?</p>
+        </div>
+        <input id="userInput" type="text" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function sendMessage() {
+        var userInput=$('#userInput').val(); /*Gets value from input field*/
+        $("#chatlogs").append("<div class='user'><p>"+userInput+"</p></div>");/*appends user message to the chatlogs*/
+        $("#userInput").val('');/*this clears the input field once the message is sent. */
+
+        $.get("/get", {msg: userInput}).done(function(response){ /*sends -> GET request to -> server with user message as parameter. For instance server comms, data retrieval, simplicity and covenience, query parameters
+          '.done -> callback function to handle server response'*/
+          $("#chatlogs").append('<div class="bot">' + response + '</div>');
+          var chatlogs = document.getElementById("chatlogs");
+          chatlogs.scrollTop = chatlogs.scrollHeight;
+        });
+      }
+
+      $("#userInput").keypress(function(event){
+        if(event.which == 13){
+          sendMessage();
+        }
+      });
+    </script>
+  </body>
+</html>
